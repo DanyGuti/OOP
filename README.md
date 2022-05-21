@@ -1,2 +1,1 @@
-# OOP
-Object Oriented Programming
+# POO (Programación Orientada a Objetos) Proyecto 
