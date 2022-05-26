@@ -3,7 +3,7 @@ Proyecto hecho por Daniel Gutiérrez Gómez
 A01068056
 Esta es el documento de la clase inventario::
 composición con Carro hereda a 3 subclases:
-Suv, TodoTerreno, Lujo
+Suv, TodoTerreno, Lujo 
 */
 #ifndef INVENTARIO_H_
 #define INVENTARIO_H_
