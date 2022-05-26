@@ -15,3 +15,9 @@ rendimiento y su ID o placa.
 El funcionamiento que se tiene desde el punto de vista CEO
 es el de poder agregar carros, con las características antes
 mencionadas.
+
+# Correr el programa
+Para poder correr el programa, se deben de descargar o 
+git pull de: "carro.h", "inventario.h", "CarRental.h" y 
+"main.cpp", se puede correr con cualquier compilador de 
+c++.
