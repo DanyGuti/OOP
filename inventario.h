@@ -36,24 +36,29 @@ public:
     void construirTodoTerreno(string marca, float rendimiento, string color, uint precio);
 };
 
+// Método que crea SUV con memoria dinámica
 void Inventario::construirSuv(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new Suv(marca, rendimiento, color, id, precio);
     id++;
 };
 
+// Método que crea Lujo con memoria dinámica
 void Inventario::construirLujo(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new Lujo(marca, rendimiento, color, id, precio);
     id++;
 };
 
+// Método que crea todoTerreno con memoria dinámica
 void Inventario::construirTodoTerreno(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new TodoTerreno(marca, rendimiento, color, id, precio);
     id++;
 };
 
+// Método que regresa true si de un input se recibe un precio
+// disponible del inventario
 bool Inventario::mostrarPorPrecio()
 {
     uint precio, idElim;
@@ -80,11 +85,17 @@ bool Inventario::mostrarPorPrecio()
         return false;
 };
 
+// Método que recibe ID de iteración de método
+// en el que se haya encontrado un precio del input
+// para poder eliminar ese carro de acuerdo a ese ID
+// llamando al método eliminar carro y el destructor
 uint Inventario::identificador(int num)
 {
     return carros[num]->getId();
 }
 
+// Creación de carros en memoria dinámica con "new"
+// que apunta a las clases heredadas de carro
 void Inventario::agregarCarros()
 {
     carros[id] = new Lujo("Audi", 13.2, "rojo", id, 1900);
@@ -149,6 +160,9 @@ void Inventario::contarCarrosPorTipo()
     cout << "Hay: " << lujo << " carros tipo 'lujo' en el inventario." << endl;
 };
 
+// Se elimina un carro cada vez que se reserva
+// esto con el ID y se llama al destructor
+// de carro
 void Inventario::eliminarCarro(uint iden)
 {
     for (int i = 0; i < id; i++)
@@ -160,6 +174,7 @@ void Inventario::eliminarCarro(uint iden)
     }
 }
 
+// Método que cambia el precio de algún carro
 void Inventario::cambiarPrecios()
 {
     string tipo;
@@ -178,6 +193,8 @@ void Inventario::cambiarPrecios()
     }
 };
 
+// Método que muestra todas las características
+// de los carros disponibles en el inventario
 void Inventario::mostrarCarros()
 {
     for (int i = 0; i < id; i++)
@@ -188,7 +205,7 @@ void Inventario::mostrarCarros()
                  << carros[i]->getColor() << " transmisión: "
                  << "manual"
                  << " tipo: "
-                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << endl;
+                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
         }
         else
         {
@@ -196,7 +213,7 @@ void Inventario::mostrarCarros()
                  << carros[i]->getColor() << " transmisión: "
                  << "automático"
                  << " tipo: "
-                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << endl;
+                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
         }
     }
 };
