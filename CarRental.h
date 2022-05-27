@@ -20,15 +20,17 @@ public:
     Inventario *inventarioCarros = new Inventario();
     CarRental() : id(0){};
     void muestraCarros();
-    void reservarCarroPrecio();
+    void reservarCarro();
     void añadirCarrosTipo();
     void añadirCarros();
 };
-
+// Método que añade carros a la empresa de renta de carros
 void CarRental::añadirCarros()
 {
     inventarioCarros->agregarCarros();
 }
+
+// Método que añade carros a la empresa por tipo de carro
 void CarRental::añadirCarrosTipo()
 {
     string tipo;
@@ -81,23 +83,25 @@ void CarRental::añadirCarrosTipo()
             flag = false;
         }
         else
+        {
+            cout << "Por favor escribe 'suv', 'lujo' o 'todoterreno': " << endl;
             flag = true;
+        }
     }
 }
-
+// Mostrar inventario actual de carros
 void CarRental::muestraCarros()
 {
     inventarioCarros->mostrarCarros();
 }
-
-void CarRental::reservarCarroPrecio()
+// Reservar carro por precio ingresado
+void CarRental::reservarCarro()
 {
     bool flag = true;
     while (flag)
     {
         if (inventarioCarros->mostrarPorPrecio() == true)
         {
-            cout << "Se ha reservado tu carro." << endl;
             flag = false;
         }
         else
