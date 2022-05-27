@@ -43,7 +43,8 @@ void Inventario::construirSuv(string marca, float rendimiento, string color, uin
 {
     carros[id] = new Suv(marca, rendimiento, color, id, precio);
     id++;
-    cout << "Se ha agregado al inventario tu 'SUV': " << Inventario::mostrarCarros();
+    cout << "Se ha agregado al inventario tu 'SUV': " << endl;
+    cout << Inventario::mostrarCarros();
 
 };
 
@@ -52,7 +53,8 @@ void Inventario::construirLujo(string marca, float rendimiento, string color, ui
 {
     carros[id] = new Lujo(marca, rendimiento, color, id, precio);
     id++;
-    cout << "Se ha agregado al inventario tu 'Lujo': " << Inventario::mostrarCarros();
+    cout << "Se ha agregado al inventario tu 'Lujo': " << endl;
+    cout << Inventario::mostrarCarros();
 
 };
 
@@ -61,7 +63,8 @@ void Inventario::construirTodoTerreno(string marca, float rendimiento, string co
 {
     carros[id] = new TodoTerreno(marca, rendimiento, color, id, precio);
     id++;
-    cout << "Se ha agregado al inventario tu 'TodoTerreno': " << Inventario::mostrarCarros();
+    cout << "Se ha agregado al inventario tu 'TodoTerreno': " << endl;
+    cout <<  Inventario::mostrarCarros();
 
 };
 
