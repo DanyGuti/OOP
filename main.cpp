@@ -13,6 +13,7 @@ int main()
     Alamos->añadirCarros();
     Alamos->muestraCarros();
     Alamos->añadirCarrosTipo();
+<<<<<<< HEAD
     Alamos->reservarCarro();
     cout << endl
          << endl;
@@ -20,3 +21,9 @@ int main()
     Alamos->añadirCarrosTipo();
     Alamos->muestraCarros();
 };
+=======
+    // Alamos->añadirCarrosTipo();
+    Alamos->reservarCarroPrecio();
+    cout << endl << endl;
+};
+>>>>>>> origin

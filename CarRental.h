@@ -29,7 +29,10 @@ void CarRental::añadirCarros()
 {
     inventarioCarros->agregarCarros();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 // Método que añade carros a la empresa por tipo de carro
 void CarRental::añadirCarrosTipo()
 {
@@ -89,13 +92,23 @@ void CarRental::añadirCarrosTipo()
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
 // Mostrar inventario actual de carros
 void CarRental::muestraCarros()
 {
     inventarioCarros->mostrarCarros();
 }
+<<<<<<< HEAD
 // Reservar carro por precio ingresado
 void CarRental::reservarCarro()
+=======
+
+// Reservar carro por precio ingresado
+void CarRental::reservarCarroPrecio()
+>>>>>>> origin
 {
     bool flag = true;
     while (flag)

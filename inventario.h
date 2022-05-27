@@ -3,7 +3,7 @@ Proyecto hecho por Daniel Gutiérrez Gómez
 A01068056
 Esta es el documento de la clase inventario::
 composición con Carro hereda a 3 subclases:
-Suv, TodoTerreno, Lujo
+Suv, TodoTerreno, Lujo 
 */
 #ifndef INVENTARIO_H_
 #define INVENTARIO_H_
@@ -35,30 +35,56 @@ public:
     void construirLujo(string marca, float rendimiento, string color, uint precio);
     void construirTodoTerreno(string marca, float rendimiento, string color, uint precio);
     void mostrarCarro(int iterator);
+<<<<<<< HEAD
 };
+=======
+
+};
+
+>>>>>>> origin
 // Método que crea SUV con memoria dinámica
 void Inventario::construirSuv(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new Suv(marca, rendimiento, color, id, precio);
     id++;
     cout << "Se ha agregado al inventario tu 'SUV': " << endl;
+<<<<<<< HEAD
     Inventario::mostrarCarros();
 };
+=======
+    cout << Inventario::mostrarCarros();
+
+};
+
+>>>>>>> origin
 // Método que crea Lujo con memoria dinámica
 void Inventario::construirLujo(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new Lujo(marca, rendimiento, color, id, precio);
     id++;
     cout << "Se ha agregado al inventario tu 'Lujo': " << endl;
+<<<<<<< HEAD
     Inventario::mostrarCarros();
 };
+=======
+    cout << Inventario::mostrarCarros();
+
+};
+
+>>>>>>> origin
 // Método que crea todoTerreno con memoria dinámica
 void Inventario::construirTodoTerreno(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new TodoTerreno(marca, rendimiento, color, id, precio);
     id++;
+<<<<<<< HEAD
     cout << "Se ha agregado al inventario tu 'todoTerreno': " << endl;
     Inventario::mostrarCarros();
+=======
+    cout << "Se ha agregado al inventario tu 'TodoTerreno': " << endl;
+    cout <<  Inventario::mostrarCarros();
+
+>>>>>>> origin
 };
 
 // Método que regresa true si de un input se recibe un precio
@@ -174,6 +200,10 @@ void Inventario::contarCarrosPorTipo()
     cout << "Hay: " << todo_terreno << " carros tipo 'todoTerreno' en el inventario." << endl;
     cout << "Hay: " << lujo << " carros tipo 'lujo' en el inventario." << endl;
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
 // Se elimina un carro cada vez que se reserva
 // esto con el ID y se llama al destructor
 // de carro
@@ -207,6 +237,10 @@ void Inventario::cambiarPrecios()
         }
     }
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
 // Método que muestra todas las características
 // de los carros disponibles en el inventario
 void Inventario::mostrarCarros()
@@ -230,7 +264,27 @@ void Inventario::mostrarCarros()
                  << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
         }
     }
+void Inventario::mostrarCarro(int i)
+{
+    cout << "Se te ha reservado tu carro con las siguientes características: " << endl;
+    if (carros[i]->getTransm() == 0)
+    {
+        cout << "Marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << " color: "
+             << carros[i]->getColor() << " transmisión: "
+             << "manual"
+             << " tipo: "
+             << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
+    }
+    else
+    {
+        cout << "Marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << " color: "
+             << carros[i]->getColor() << " transmisión: "
+             << "automático"
+             << " tipo: "
+             << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
+    }
 };
+<<<<<<< HEAD
 
 void Inventario::mostrarCarro(int i)
 {
@@ -253,3 +307,5 @@ void Inventario::mostrarCarro(int i)
     }
 };
 #endif
+=======
+>>>>>>> origin
