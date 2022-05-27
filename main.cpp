@@ -9,7 +9,7 @@ int main()
     Alamos->añadirCarros();
     Alamos->muestraCarros();
     Alamos->añadirCarrosTipo();
-    Alamos->añadirCarrosTipo();
+    // Alamos->añadirCarrosTipo();
     Alamos->reservarCarroPrecio();
-    Alamos->muestraCarros();
+    cout << endl << endl;
 };
