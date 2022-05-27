@@ -1,3 +1,7 @@
+/*
+Proyecto hecho por Daniel Gutiérrez Gómez
+A01068056
+*/
 #include <iostream>
 #include "CarRental.h"
 
@@ -9,7 +13,10 @@ int main()
     Alamos->añadirCarros();
     Alamos->muestraCarros();
     Alamos->añadirCarrosTipo();
+    Alamos->reservarCarro();
+    cout << endl
+         << endl;
+    Alamos->muestraCarros();
     Alamos->añadirCarrosTipo();
-    Alamos->reservarCarroPrecio();
     Alamos->muestraCarros();
 };
