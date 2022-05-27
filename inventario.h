@@ -34,6 +34,8 @@ public:
     void construirSuv(string marca, float rendimiento, string color, uint precio);
     void construirLujo(string marca, float rendimiento, string color, uint precio);
     void construirTodoTerreno(string marca, float rendimiento, string color, uint precio);
+    void mostrarCarro(int iterator);
+
 };
 
 // Método que crea SUV con memoria dinámica
@@ -41,6 +43,8 @@ void Inventario::construirSuv(string marca, float rendimiento, string color, uin
 {
     carros[id] = new Suv(marca, rendimiento, color, id, precio);
     id++;
+    cout << "Se ha agregado al inventario tu 'SUV': " << Inventario::mostrarCarros();
+
 };
 
 // Método que crea Lujo con memoria dinámica
@@ -48,6 +52,8 @@ void Inventario::construirLujo(string marca, float rendimiento, string color, ui
 {
     carros[id] = new Lujo(marca, rendimiento, color, id, precio);
     id++;
+    cout << "Se ha agregado al inventario tu 'Lujo': " << Inventario::mostrarCarros();
+
 };
 
 // Método que crea todoTerreno con memoria dinámica
@@ -55,6 +61,8 @@ void Inventario::construirTodoTerreno(string marca, float rendimiento, string co
 {
     carros[id] = new TodoTerreno(marca, rendimiento, color, id, precio);
     id++;
+    cout << "Se ha agregado al inventario tu 'TodoTerreno': " << Inventario::mostrarCarros();
+
 };
 
 // Método que regresa true si de un input se recibe un precio
@@ -74,6 +82,7 @@ bool Inventario::mostrarPorPrecio()
     {
         if (carros[i]->getPrecio() == precio)
         {
+            Inventario::mostrarCarro(i);
             idElim = Inventario::identificador(i);
             Inventario::eliminarCarro(idElim);
             flag = true;
@@ -172,6 +181,7 @@ void Inventario::eliminarCarro(uint iden)
             delete carros[i];
         }
     }
+    id--;
 }
 
 // Método que cambia el precio de algún carro
@@ -216,24 +226,23 @@ void Inventario::mostrarCarros()
                  << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
         }
     }
+void Inventario::mostrarCarro(int i)
+{
+    cout << "Se te ha reservado tu carro con las siguientes características: " << endl;
+    if (carros[i]->getTransm() == 0)
+    {
+        cout << "Marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << " color: "
+             << carros[i]->getColor() << " transmisión: "
+             << "manual"
+             << " tipo: "
+             << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
+    }
+    else
+    {
+        cout << "Marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << " color: "
+             << carros[i]->getColor() << " transmisión: "
+             << "automático"
+             << " tipo: "
+             << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
+    }
 };
-#endif
-// int main()
-// {
-//      Lujo audi("Audi", 13.2, "rojo", 0, 1900);
-//      cout << audi.getAsientos();
-
-//     Carro *cptr;
-//     Lujo audi("Audi", 13.2, "rojo", 0, 1900);
-//     cptr = &audi;
-
-//     cout << cptr->getPrecio() << endl;
-//     audi.setPrecio(2900);
-//     cout << cptr->getPrecio() << endl;
-
-//     Carro *cptr2;
-//     Lujo audi2("Audi", 10.1, "negro", 1, 2900);
-//     cptr2 = &audi2;
-
-//     cout << cptr2->getRendim() << endl;
-// }
