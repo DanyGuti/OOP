@@ -34,41 +34,61 @@ public:
     void construirSuv(string marca, float rendimiento, string color, uint precio);
     void construirLujo(string marca, float rendimiento, string color, uint precio);
     void construirTodoTerreno(string marca, float rendimiento, string color, uint precio);
+    void mostrarCarro(int iterator);
 };
-
+// Método que crea SUV con memoria dinámica
 void Inventario::construirSuv(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new Suv(marca, rendimiento, color, id, precio);
     id++;
+    cout << "Se ha agregado al inventario tu 'SUV': " << endl;
+    Inventario::mostrarCarros();
 };
-
+// Método que crea Lujo con memoria dinámica
 void Inventario::construirLujo(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new Lujo(marca, rendimiento, color, id, precio);
     id++;
+    cout << "Se ha agregado al inventario tu 'Lujo': " << endl;
+    Inventario::mostrarCarros();
 };
-
+// Método que crea todoTerreno con memoria dinámica
 void Inventario::construirTodoTerreno(string marca, float rendimiento, string color, uint precio)
 {
     carros[id] = new TodoTerreno(marca, rendimiento, color, id, precio);
     id++;
+    cout << "Se ha agregado al inventario tu 'todoTerreno': " << endl;
+    Inventario::mostrarCarros();
 };
 
+// Método que regresa true si de un input se recibe un precio
+// disponible del inventario
 bool Inventario::mostrarPorPrecio()
 {
+    float rendim;
+    string marca, color;
     uint precio, idElim;
     bool flag = false;
-    cout << "Estos son los precios de los carros disponibles: " << endl;
+    cout << "Estos son los datos de los carros disponibles para que puedas reservarlos: " << endl;
     for (int i = 0; i < id; i++)
     {
-        carros[i]->getPrecio();
+        // HACER COMMIT EN GITHUB de cout los precios
+        cout << "Precio: " << carros[i]->getPrecio() << " color: " << carros[i]->getColor() << " marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << endl
+             << endl;
     }
     cout << "Ahora por favor, escribe el precio del carro que quieres: " << endl;
     cin >> precio;
+    cout << "Ahora por favor, escribe el color del carro que quieres: " << endl;
+    cin >> color;
+    cout << "Ahora por favor, escribe la marca del carro que quieres: " << endl;
+    cin >> marca;
+    cout << "Ahora por favor, escribe el rendimiento del carro que quieres: " << endl;
+    cin >> rendim;
     for (int i = 0; i < id; i++)
     {
-        if (carros[i]->getPrecio() == precio)
+        if (carros[i]->getPrecio() == precio && carros[i]->getColor() == color && carros[i]->getMarca() == marca)
         {
+            Inventario::mostrarCarro(i);
             idElim = Inventario::identificador(i);
             Inventario::eliminarCarro(idElim);
             flag = true;
@@ -80,11 +100,17 @@ bool Inventario::mostrarPorPrecio()
         return false;
 };
 
+// Método que recibe ID de iteración de método
+// en el que se haya encontrado un precio del input
+// para poder eliminar ese carro de acuerdo a ese ID
+// llamando al método eliminar carro y el destructor
 uint Inventario::identificador(int num)
 {
     return carros[num]->getId();
 }
 
+// Creación de carros en memoria dinámica con "new"
+// que apunta a las clases heredadas de carro
 void Inventario::agregarCarros()
 {
     carros[id] = new Lujo("Audi", 13.2, "rojo", id, 1900);
@@ -148,7 +174,9 @@ void Inventario::contarCarrosPorTipo()
     cout << "Hay: " << todo_terreno << " carros tipo 'todoTerreno' en el inventario." << endl;
     cout << "Hay: " << lujo << " carros tipo 'lujo' en el inventario." << endl;
 };
-
+// Se elimina un carro cada vez que se reserva
+// esto con el ID y se llama al destructor
+// de carro
 void Inventario::eliminarCarro(uint iden)
 {
     for (int i = 0; i < id; i++)
@@ -158,12 +186,14 @@ void Inventario::eliminarCarro(uint iden)
             delete carros[i];
         }
     }
+    id--;
 }
 
+// Método que cambia el precio de algún carro
 void Inventario::cambiarPrecios()
 {
     string tipo;
-    int precio_n, ptr_n, ptr_v;
+    int precio_n;
     cout << "Por favor escribe el tipo de carro que deseas cambiarle el precio: " << endl;
     cin >> tipo;
     cout << endl
@@ -177,7 +207,8 @@ void Inventario::cambiarPrecios()
         }
     }
 };
-
+// Método que muestra todas las características
+// de los carros disponibles en el inventario
 void Inventario::mostrarCarros()
 {
     for (int i = 0; i < id; i++)
@@ -188,7 +219,7 @@ void Inventario::mostrarCarros()
                  << carros[i]->getColor() << " transmisión: "
                  << "manual"
                  << " tipo: "
-                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << endl;
+                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
         }
         else
         {
@@ -196,27 +227,29 @@ void Inventario::mostrarCarros()
                  << carros[i]->getColor() << " transmisión: "
                  << "automático"
                  << " tipo: "
-                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << endl;
+                 << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
         }
     }
 };
+
+void Inventario::mostrarCarro(int i)
+{
+    cout << "Se te ha reservado tu carro con las siguientes características: " << endl;
+    if (carros[i]->getTransm() == 0)
+    {
+        cout << "Marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << " color: "
+             << carros[i]->getColor() << " transmisión: "
+             << "manual"
+             << " tipo: "
+             << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
+    }
+    else
+    {
+        cout << "Marca: " << carros[i]->getMarca() << " rendimiento: " << carros[i]->getRendim() << " color: "
+             << carros[i]->getColor() << " transmisión: "
+             << "automático"
+             << " tipo: "
+             << carros[i]->getTipo() << " precio: " << carros[i]->getPrecio() << " id: " << carros[i]->getId() << " número de asientos: " << carros[i]->getAsientos() << endl;
+    }
+};
 #endif
-// int main()
-// {
-//      Lujo audi("Audi", 13.2, "rojo", 0, 1900);
-//      cout << audi.getAsientos();
-
-//     Carro *cptr;
-//     Lujo audi("Audi", 13.2, "rojo", 0, 1900);
-//     cptr = &audi;
-
-//     cout << cptr->getPrecio() << endl;
-//     audi.setPrecio(2900);
-//     cout << cptr->getPrecio() << endl;
-
-//     Carro *cptr2;
-//     Lujo audi2("Audi", 10.1, "negro", 1, 2900);
-//     cptr2 = &audi2;
-
-//     cout << cptr2->getRendim() << endl;
-// }
