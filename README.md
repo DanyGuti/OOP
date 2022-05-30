@@ -23,4 +23,5 @@ git pull de: "carro.h", "inventario.h", "CarRental.h" y
 c++:  
 # 
 g++ -o <nombre de ejecutable> main.cpp
+#
 ./<nombre de ejecutable>
