@@ -1,7 +1,7 @@
 /*
 Proyecto hecho por Daniel Gutiérrez Gómez
 A01068056
-Esta es el documento de la clase carro
+Esta es el documento de la clase car
 hereda a 3 subclases: Suv, TodoTerreno, Lujo
 */
 #ifndef CARRO_H_
@@ -9,82 +9,82 @@ hereda a 3 subclases: Suv, TodoTerreno, Lujo
 #include <string>
 
 using namespace std;
-class Carro
+class Car
 {
 
 protected: // Atributos que se usarán en clases heredadas
-    string marca;
-    float rendimiento;
+    string brand;
+    float performance;
     string color;
-    bool transmision; // True si es automático
-    uint asientos;
+    bool transmission; // True si es automático
+    uint seats;
     uint id;
-    string tipo;
+    string type;
 
 public:
-    Carro() : marca(""), rendimiento(0.0), color(""),
-              transmision(false), asientos(0), id(0), tipo(""){}; // Constructor por default
+    Car() : brand(""), performance(0.0), color(""),
+            transmission(false), seats(0), id(0), type(""){}; // Constructor por default
 
-    Carro(string marca_s, float rendimiento_s, string color_s,
-          bool transmision_s, uint asientos_s, uint id_s, string tipo_s) : marca(marca_s), rendimiento(rendimiento_s), color(color_s),
-                                                                           transmision(transmision_s), asientos(asientos_s), id(id_s), tipo(tipo_s){};
-    virtual ~Carro(){}; // Destructor de clase carro
-    string getMarca() { return marca; }
-    float getRendim() { return rendimiento; }
+    Car(string brand_s, float performance_s, string color_s,
+        bool transmission_s, uint seats_s, uint id_s, string type_s) : brand(brand_s), performance(performance_s), color(color_s),
+                                                                       transmission(transmission_s), seats(seats_s), id(id_s), type(type_s){};
+    virtual ~Car(){}; // Destructor de clase car
+    string getBrand() { return brand; }
+    float getPerform() { return performance; }
     string getColor() { return color; }
-    bool getTransm() { return transmision; }
-    uint getAsientos() { return asientos; }
+    bool getTransm() { return transmission; }
+    uint getSeats() { return seats; }
     uint getId() { return id; }
-    string getTipo() { return tipo; }
-    virtual uint getPrecio() = 0;
-    void setPrecio(uint precio){}; // Sobreescritura de setPrecio
-    void setMarca(string marca_s) { marca = marca_s; }
-    void setRendim(float rendim_s) { rendimiento = rendim_s; }
+    string getType() { return type; }
+    virtual uint getPrice() = 0;
+    void setPrecio(uint price){}; // Sobreescritura de setPrecio
+    void setBrand(string brand_s) { brand = brand_s; }
+    void setPerform(float performance_s) { performance = performance_s; }
     void setColor(string color_s) { color = color_s; }
-    void setTransm(bool transmision_s) { transmision = transmision_s; }
+    void setTransm(bool transmission_s) { transmission = transmission_s; }
 };
 
-class Suv : public Carro
+class Suv : public Car
 {
 
 private:
-    uint precio;
+    uint price;
 
-public: // marca, rend, color, trans, asientos, id, tipo
-    Suv() : Carro("", 0.0, "", true, 4, 0, "suv"){};
-    Suv(string marca, float rendimiento, string color, uint id, uint precio_s) : Carro(marca, rendimiento, color, true, 4, id, "suv"), precio(precio_s){};
+public: // brand, rend, color, trans, seats, id, type
+    Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
+    Suv(string brand, float performance, string color, uint id, uint price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
     ~Suv(){};
     // Sobreescritura de setPrecio
-    void setPrecio(uint precio_s) { precio = precio_s; }
-    uint getPrecio() { return precio; }
+    void setPrice(uint price_s) { price = price_s; }
+    uint getPrice() { return price; }
 };
 
-class TodoTerreno : public Carro
+class allTerrain : public Car
 {
 
 private:
-    uint precio;
+    uint price;
 
-public: // marca, rend, color, trans, asientos, id, tipo
-    TodoTerreno() : Carro("", 0.0, "", false, 5, 0, "todoterreno"){};
-    TodoTerreno(string marca, float rendimiento, string color, uint id, uint precio_s) : Carro(marca, rendimiento, color, false, 5, id, "todoterreno"), precio(precio_s){};
-    ~TodoTerreno(){};                                    // Destructor de TodoTerreno
-    void setPrecio(uint precio_s) { precio = precio_s; } // Sobreescritura de setPrecio
-    uint getPrecio() { return precio; }
+public: // brand, rend, color, trans, seats, id, type
+    allTerrain() : Car("", 0.0, "", false, 5, 0, "allterrain"){};
+    allTerrain(string brand, float performance, string color, uint id, uint price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
+    ~allTerrain(){};                                 // Destructor de TodoTerreno
+    void setPrice(uint price_s) { price = price_s; } // Sobreescritura de setPrecio
+    uint getPrice() { return price; }
 };
 
-class Lujo : public Carro
+class Luxury : public Car
 {
 
 private:
-    uint precio;
+    uint price;
 
-public: // marca, rend, color, trans, asientos, id, tipo
-    Lujo() : Carro("", 0.0, "", true, 2, 0, "lujo"){};
-    Lujo(string marca, float rendimiento, string color, uint id, uint precio_s) : Carro(marca, rendimiento, color, true, 2, id, "lujo"), precio(precio_s){};
-    ~Lujo(){};                                           // Destructor de Lujo
-    void setPrecio(uint precio_s) { precio = precio_s; } // Sobreescritura de setPrecio
-    uint getPrecio() { return precio; }
+public: // brand, rend, color, trans, seats, id, type
+    Luxury() : Car("", 0.0, "", true, 2, 0, "lujo"){};
+    Luxury(string brand, float performance, string color, uint id, uint price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
+    ~Luxury(){};                                     // Destructor de Lujo
+    void setPrice(uint price_s) { price = price_s; } // Sobreescritura de setPrecio
+    uint getPrice() { return price; }
 };
 
 #endif
