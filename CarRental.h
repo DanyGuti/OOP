@@ -56,7 +56,7 @@ void CarRental::addCarsInventaryType()
             carInventary->constructSuv(brand, perform, color, price);
             flag = false;
         }
-        if (type == "allterrain")
+        if (type == "todoterreno")
         {
             cout << "Escribe una marca de todoTerreno: " << endl;
             cin >> brand;
@@ -69,7 +69,7 @@ void CarRental::addCarsInventaryType()
             carInventary->constructAllTerrain(brand, perform, color, price);
             flag = false;
         }
-        if (type == "luxury")
+        if (type == "lujo")
         {
             cout << "Escribe una marca de lujo: " << endl;
             cin >> brand;
@@ -79,7 +79,7 @@ void CarRental::addCarsInventaryType()
             cin >> color;
             cout << "Escribe el precio del lujo para su renta: " << endl;
             cin >> price;
-            carInventary->construirLujo(brand, perform, color, price);
+            carInventary->constructLuxury(brand, perform, color, price);
             flag = false;
         }
         else
