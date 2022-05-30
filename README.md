@@ -20,6 +20,7 @@ mencionadas.
 Para poder correr el programa, se deben de descargar o 
 git pull de: "carro.h", "inventario.h", "CarRental.h" y 
 "main.cpp", se puede correr con cualquier compilador de 
-c++, 
+c++:  
+# 
 g++ -o <nombre de ejecutable> main.cpp
 ./<nombre de ejecutable>
