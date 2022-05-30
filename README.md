@@ -22,6 +22,6 @@ git pull de: "carro.h", "inventario.h", "CarRental.h" y
 "main.cpp", se puede correr con cualquier compilador de 
 c++:  
 # 
-g++ -o <nombre de ejecutable> main.cpp
+g++ -o "nombre de ejecutable" main.cpp
 #
-./<nombre de ejecutable>
+./"nombre de ejecutable"
