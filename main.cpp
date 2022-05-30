@@ -10,20 +10,12 @@ using namespace std;
 int main()
 {
     CarRental *Alamos = new CarRental();
-    Alamos->añadirCarros();
-    Alamos->muestraCarros();
-    Alamos->añadirCarrosTipo();
-<<<<<<< HEAD
-    Alamos->reservarCarro();
+    Alamos->addCarsInventary();
+    Alamos->showCarsInventary();
+    Alamos->addCarsInventaryType();
+    Alamos->bookCars();
     cout << endl
          << endl;
-    Alamos->muestraCarros();
-    Alamos->añadirCarrosTipo();
-    Alamos->muestraCarros();
+    Alamos->addCarsInventary();
+    Alamos->showCarsInventary();
 };
-=======
-    // Alamos->añadirCarrosTipo();
-    Alamos->reservarCarroPrecio();
-    cout << endl << endl;
-};
->>>>>>> origin
