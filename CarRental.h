@@ -17,72 +17,69 @@ private:
     uint id;
 
 public:
-    Inventario *inventarioCarros = new Inventario();
+    Inventary *carInventary = new Inventary();
     CarRental() : id(0){};
-    void muestraCarros();
-    void reservarCarro();
-    void añadirCarrosTipo();
-    void añadirCarros();
+    void showCarsInventary();
+    void bookCars();
+    void addCarsInventaryType();
+    void addCarsInventary();
 };
 // Método que añade carros a la empresa de renta de carros
-void CarRental::añadirCarros()
+void CarRental::addCarsInventary()
 {
-    inventarioCarros->agregarCarros();
-}
-<<<<<<< HEAD
+    carInventary->addCars();
+};
 
-=======
->>>>>>> origin
-// Método que añade carros a la empresa por tipo de carro
-void CarRental::añadirCarrosTipo()
+// Método que añade carros a la empresa por type de carro
+void CarRental::addCarsInventaryType()
 {
-    string tipo;
-    string marca, color;
-    float rendim;
-    uint precio;
+    string type;
+    string brand, color;
+    float perform;
+    uint price;
     bool flag = true;
     cout << "Hola jefe, por favor escribe que tipo de carro deseas agregar al inventario: suv, lujo o todoterreno: " << endl
          << endl;
     while (flag)
     {
-        cin >> tipo;
-        if (tipo == "suv")
+        cin >> type;
+        if (type == "suv")
         {
             cout << "Escribe una marca de SUV: " << endl;
-            cin >> marca;
+            cin >> brand;
             cout << "Escribe el rendimiento del SUV: " << endl;
-            cin >> rendim;
+            cin >> perform;
             cout << "Escribe el color del SUV: " << endl;
             cin >> color;
-            cout << "Escribe el precio del SUV para su renta: " << endl;
-            cin >> precio;
-            inventarioCarros->construirSuv(marca, rendim, color, precio);
+            cout << "Escribe el price del SUV para su renta: " << endl;
+            cin >> price;
+            carInventary->constructSuv(brand, perform, color, price);
             flag = false;
         }
-        if (tipo == "todoterreno")
+        if (type == "allterrain")
         {
             cout << "Escribe una marca de todoTerreno: " << endl;
-            cin >> marca;
+            cin >> brand;
             cout << "Escribe el rendimiento del todoTerreno: " << endl;
-            cin >> rendim;
+            cin >> perform;
             cout << "Escribe el color del todoTerreno: " << endl;
             cin >> color;
             cout << "Escribe el precio del todoTerreno para su renta: " << endl;
-            cin >> precio;
-            inventarioCarros->construirTodoTerreno(marca, rendim, color, precio);
+            cin >> price;
+            carInventary->constructAllTerrain(brand, perform, color, price);
             flag = false;
         }
-        if (tipo == "lujo")
+        if (type == "luxury")
         {
             cout << "Escribe una marca de lujo: " << endl;
-            cin >> marca;
+            cin >> brand;
             cout << "Escribe el rendimiento del lujo: " << endl;
-            cin >> rendim;
+            cin >> perform;
             cout << "Escribe el color del lujo: " << endl;
             cin >> color;
             cout << "Escribe el precio del lujo para su renta: " << endl;
-            cin >> precio;
-            inventarioCarros->construirLujo(marca, rendim, color, precio);
+            cin >> price;
+            carInventary->construirLujo(brand, perform, color, price);
             flag = false;
         }
         else
@@ -91,29 +88,21 @@ void CarRental::añadirCarrosTipo()
             flag = true;
         }
     }
-}
-<<<<<<< HEAD
-=======
+};
 
->>>>>>> origin
 // Mostrar inventario actual de carros
-void CarRental::muestraCarros()
+void CarRental::showCarsInventary()
 {
-    inventarioCarros->mostrarCarros();
-}
-<<<<<<< HEAD
-// Reservar carro por precio ingresado
-void CarRental::reservarCarro()
-=======
+    carInventary->showCars();
+};
 
-// Reservar carro por precio ingresado
-void CarRental::reservarCarroPrecio()
->>>>>>> origin
+// Reservar carro
+void CarRental::bookCars()
 {
     bool flag = true;
     while (flag)
     {
-        if (inventarioCarros->mostrarPorPrecio() == true)
+        if (carInventary->showByPrice() == true)
         {
             flag = false;
         }
