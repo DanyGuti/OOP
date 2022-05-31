@@ -211,21 +211,42 @@ void Inventary::deleteCar(uint iden)
     id--;
 };
 
-// Método que cambia el price de algún car
+// Método que cambia el price de algún carro
+// por las especificaciones
 void Inventary::changePrices()
 {
-    string type;
-    int new_price;
-    cout << "Por favor escribe el tipo de carro que deseas cambiarle el precio: " << endl;
+    string type, color, brand;
+    uint new_price, price, seats;
+    float performance;
+    bool transmission;
+    cout << "Por favor escribe las especificaciones del tipo de carro que deseas cambiarle el precio: " << endl;
+    cout << "El tipo: " << endl;
     cin >> type;
-    cout << endl
-         << "Ahora, el nuevo precio: " << endl;
+    cout << "El color: " << endl;
+    cin >> color;
+    cout << "El precio: " << endl;
+    cin >> price;
+    cout << "La marca: " << endl;
+    cin >> brand;
+    cout << "El rendimiento: " << endl;
+    cin >> performance;
+    cout << "La transmisión: (0 si es manual 1 si es automático) " << endl;
+    cin >> transmission;
+    cout << "Los asientos: " << endl;
+    cin >> seats;
+    cout << "Ahora, el nuevo precio: " << endl;
     cin >> new_price;
+
     for (int i = 0; i < id; i++)
     {
-        if (cars[i]->getType() == type)
+        if (Inventary::searchCar(brand, performance, color, transmission, seats, type, price) == true)
         {
             cars[i]->setPrice(new_price);
+        }
+        else
+        {
+            cout << "No has escrito bien los datos." << endl
+                 << endl;
         }
     }
 };
