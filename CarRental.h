@@ -13,10 +13,13 @@ using namespace std;
 
 class CarRental
 {
+    // Variable privada
 private:
     uint id;
 
 public:
+    // Declaro métodos públicos y delcaro el apuntador de tipo Inventary para usar polimorfismo
+    // También constructor por default
     Inventary *carInventary = new Inventary();
     CarRental() : id(0){};
     void showCarsInventary();
@@ -30,7 +33,7 @@ void CarRental::addCarsInventary()
     carInventary->addCars();
 };
 
-// Método que añade carros a la empresa por type de carro
+// Método que añade carros a la empresa por tipo de carro
 void CarRental::addCarsInventaryType()
 {
     string type;
@@ -55,6 +58,7 @@ void CarRental::addCarsInventaryType()
             cin >> price;
             carInventary->constructSuv(brand, perform, color, price);
             flag = false;
+            break;
         }
         if (type == "todoterreno")
         {
@@ -68,6 +72,7 @@ void CarRental::addCarsInventaryType()
             cin >> price;
             carInventary->constructAllTerrain(brand, perform, color, price);
             flag = false;
+            break;
         }
         if (type == "lujo")
         {
@@ -81,6 +86,7 @@ void CarRental::addCarsInventaryType()
             cin >> price;
             carInventary->constructLuxury(brand, perform, color, price);
             flag = false;
+            break;
         }
         else
         {
@@ -105,9 +111,12 @@ void CarRental::bookCars()
         if (carInventary->showByPrice() == true)
         {
             flag = false;
+            break;
         }
         else
             flag = true;
+        cout << "No hemos encontrado el carro que deseas buscar. Vuelve a correr el programa..." << endl;
+        break;
     }
 };
 #endif
