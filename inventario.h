@@ -14,12 +14,16 @@ Suv, allTerrain, Luxury
 
 using namespace std;
 
+// Constante de tamaño máx de arreglo
 const int num_max_cars = 1000;
 class Inventary
 {
+    // Variable privada
 private:
     uint id;
 
+    // Declaro métodos públicos y delcaro el apuntador de tipo Carro para usar polimorfismo
+    // También constructor por default
 public:
     Car *cars[num_max_cars];
     Inventary() : id(0){};
@@ -38,6 +42,8 @@ public:
 };
 
 // Método que crea SUV con memoria dinámica
+// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// en otros métodos
 void Inventary::constructSuv(string brand, float performance, string color, uint price)
 {
     cars[id] = new Suv(brand, performance, color, id, price);
@@ -47,6 +53,8 @@ void Inventary::constructSuv(string brand, float performance, string color, uint
 };
 
 // Método que crea Luxury con memoria dinámica
+// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// en otros métodos
 void Inventary::constructLuxury(string brand, float performance, string color, uint price)
 {
     cars[id] = new Luxury(brand, performance, color, id, price);
@@ -56,6 +64,8 @@ void Inventary::constructLuxury(string brand, float performance, string color, u
 };
 
 // Método que crea allTerrain con memoria dinámica
+// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// en otros métodos
 void Inventary::constructAllTerrain(string brand, float performance, string color, uint price)
 {
     cars[id] = new allTerrain(brand, performance, color, id, price);
@@ -96,6 +106,12 @@ bool Inventary::showByPrice()
             Inventary::deleteCar(idDel);
             flag = true;
         }
+        else
+        {
+            cout << "No has escrito bien todos los datos...." << endl;
+            flag = false;
+            break;
+        }
     }
     if (flag == true)
         return true;
@@ -114,6 +130,8 @@ uint Inventary::identifier(int num)
 
 // Creación de cars en memoria dinámica con "new"
 // que apunta a las clases heredadas de car
+// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// en otros métodos
 void Inventary::addCars()
 {
     cars[id] = new Luxury("Audi", 13.2, "rojo", id, 1900);
@@ -141,7 +159,7 @@ void Inventary::addCars()
     cars[id] = new allTerrain("Ford", 13.3, "gris", id, 2200);
     id++;
 };
-// Iteración en inventary de cars para ver si coincide con
+// Iteración en inventario de carros para ver si coincide con
 // tipos de datos recibidos
 bool Inventary::searchCar(string brand, float performance, string color, bool transmission, uint seats, string type, uint price)
 {
@@ -157,8 +175,8 @@ bool Inventary::searchCar(string brand, float performance, string color, bool tr
         return false;
 };
 
-// Método que imprime la cantidad de cars por type
-// utilizando apuntadores a métodos por composición
+// Método que imprime la cantidad de carros por tipo
+// utilizando apuntadores a otros métodos
 void Inventary::countCarsbyType()
 {
     uint suv = 0;
@@ -213,7 +231,7 @@ void Inventary::changePrices()
 };
 
 // Método que muestra todas las características
-// de los cars disponibles en el inventary
+// de los carros disponibles en el inventario
 void Inventary::showCars()
 {
     for (int i = 0; i < id; i++)
@@ -236,6 +254,8 @@ void Inventary::showCars()
         }
     }
 };
+// Método que muestra todas las características
+// del carro en cierto índice (se utilizó para lógica de otro método: showByPrice())
 void Inventary::showCar(int i)
 {
     cout << "Se te ha reservado tu carro con las siguientes características: " << endl;
