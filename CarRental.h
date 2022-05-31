@@ -26,6 +26,12 @@ public:
     void bookCars();
     void addCarsInventaryType();
     void addCarsInventary();
+    void changePrice();
+};
+
+void CarRental::changePrice()
+{
+    carInventary->changePrices();
 };
 // Método que añade carros a la empresa de renta de carros
 void CarRental::addCarsInventary()
