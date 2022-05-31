@@ -36,7 +36,7 @@ public:
     uint getSeats() { return seats; }
     uint getId() { return id; }
     string getType() { return type; }
-    virtual uint getPrice() = 0;
+    virtual uint getPrice() = 0; // Método abstracto que es sobreescrito
     void setPrice(uint price){}; // Sobreescritura de setPrice
     void setBrand(string brand_s) { brand = brand_s; }
     void setPerform(float performance_s) { performance = performance_s; }
@@ -53,10 +53,9 @@ private:
 public: // brand, rend, color, trans, seats, id, type
     Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
     Suv(string brand, float performance, string color, uint id, uint price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
-    ~Suv(){};
-    // Sobreescritura de setPrice
-    void setPrice(uint price_s) { price = price_s; }
-    uint getPrice() { return price; }
+    ~Suv(){};                                        // Destructor de Suv
+    void setPrice(uint price_s) { price = price_s; } // Sobreescritura de setPrice
+    uint getPrice() { return price; }                // Método abstracto sobreescrito
 };
 
 class allTerrain : public Car
@@ -66,11 +65,11 @@ private:
     uint price;
 
 public: // brand, rend, color, trans, seats, id, type
-    allTerrain() : Car("", 0.0, "", false, 5, 0, "allterrain"){};
+    allTerrain() : Car("", 0.0, "", false, 5, 0, "todoterreno"){};
     allTerrain(string brand, float performance, string color, uint id, uint price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
     ~allTerrain(){};                                 // Destructor de allTerrain
     void setPrice(uint price_s) { price = price_s; } // Sobreescritura de setPrice
-    uint getPrice() { return price; }
+    uint getPrice() { return price; }                // Método abstracto sobreescrito
 };
 
 class Luxury : public Car
@@ -84,7 +83,7 @@ public: // brand, rend, color, trans, seats, id, type
     Luxury(string brand, float performance, string color, uint id, uint price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
     ~Luxury(){};                                     // Destructor de Luxury
     void setPrice(uint price_s) { price = price_s; } // Sobreescritura de setPrice
-    uint getPrice() { return price; }
+    uint getPrice() { return price; }                // Método abstracto sobreescrito
 };
 
 #endif
