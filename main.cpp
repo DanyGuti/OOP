@@ -12,7 +12,18 @@ int main()
 {
      char s = ' ';                        // Variable para hacer el menú
      string optionCeo = " ";              // Variable para hacer el menú
-     CarRental *Alamos = new CarRental(); // Apuntador de tipo CarRental para utilizar polimorfismo
+     CarRental *Alamos = new CarRental(); // Apuntador de tipo CarRental para acceder con apuntadores
+                                          // a métodos de CarRental con memoria dinámica
+
+     // El menú se puede modificar, solamente se pusieron métodos
+     // de agregar carros para la demostración, en realidad, cada
+     // vez que se ingresa como CEO se agregan carros al inventario
+     // porque se tiene pensado que la empresa ya tiene un inventario
+     // por default y que se cambie el precio del carro seleccionado.
+     //
+     // De igual manera, si quieres reservar un carro, ya se tiene contemplado
+     // hacer un inventario de carros al momento de correr el código
+     // y presionar R en menú.
      cout << "----------- Este es el menú de CarRental -----------" << endl
           << endl;
      cout << "    En este programa tienes dos opciones    " << endl
@@ -22,6 +33,8 @@ int main()
           << endl;
      cout << "    O ser usuario y rentar un carro de los disponibles " << endl
           << endl;
+     cout << "    ¡¡¡Por favor teclea muy bien a la hora de Reservar o ser CEO!!!   " << endl
+          << endl;
      while (s != 'R' || s != 'C' || s != 'S')
      {
           cout << "   Teclea R si quieres rentar, C si eres CEO o S para salir   " << endl
@@ -29,17 +42,14 @@ int main()
           cin >> s;
           if (s == 'R')
           {
-               cout << "Parece que quieres rentar un carro, este es nuestro inventario actual: " << endl
-                    << endl;
                cout << "Nota, a la hora de reservar carro se muy específico y teclea bien el carro que quieres" << endl
                     << endl;
                cout << "¡Escribiendo bien la marca, el rendimiento y el color por favor!" << endl
                     << endl;
                Alamos->addCarsInventary();
-               Alamos->showCarsInventary();
-               Alamos->bookCars();
                cout << endl
                     << endl;
+               Alamos->bookCars();
                Alamos->showCarsInventary();
                break;
           }
@@ -58,10 +68,12 @@ int main()
                          Alamos->showCarsInventary();
                          cout << "Vuelve pronto CEO..." << endl
                               << endl;
+
                          break;
                     }
                     else if (optionCeo == "uno")
                     {
+                         Alamos->addCarsInventary();
                          Alamos->addCarsInventaryType();
                          cout << "Vuelve pronto CEO..." << endl
                               << endl;
@@ -85,6 +97,7 @@ int main()
                     }
                     break;
                }
+               break;
           }
           else if (s == 'S')
           {
