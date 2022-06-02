@@ -15,7 +15,7 @@ Suv, allTerrain, Luxury
 using namespace std;
 
 // Constante de tamaño máx de arreglo
-const int num_max_cars = 1000;
+const int num_max_cars = 100;
 class Inventary
 {
     // Variable privada
