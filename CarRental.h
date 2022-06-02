@@ -18,7 +18,8 @@ private:
     uint id;
 
 public:
-    // Declaro métodos públicos y delcaro el apuntador de tipo Inventary para usar polimorfismo
+    // Declaro métodos públicos y delcaro el apuntador de tipo Inventary acceder
+    // a los métodos de Inventary con apuntadores con memoria dináamica
     // También constructor por default
     Inventary *carInventary = new Inventary();
     CarRental() : id(0){};
@@ -33,13 +34,13 @@ void CarRental::changePrice()
 {
     carInventary->changePrices();
 };
-// Método que añade carros a la empresa de renta de carros
+// Método que agrega carros a la empresa de renta de carros
 void CarRental::addCarsInventary()
 {
     carInventary->addCars();
 };
 
-// Método que añade carros a la empresa por tipo de carro
+// Método que agrega carros a la empresa por tipo de carro
 void CarRental::addCarsInventaryType()
 {
     string type;
@@ -120,9 +121,12 @@ void CarRental::bookCars()
             break;
         }
         else
+        {
+            cout << "No se encotró el carro que quieres. " << endl
+                 << endl;
             flag = true;
-        cout << "No hemos encontrado el carro que deseas buscar. Vuelve a correr el programa..." << endl;
-        break;
+            break;
+        }
     }
 };
 #endif
