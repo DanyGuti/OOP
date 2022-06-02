@@ -22,7 +22,7 @@ int main()
      // por default y que se cambie el precio del carro seleccionado.
      //
      // De igual manera, si quieres reservar un carro, ya se tiene contemplado
-     // hacer un inventario de carros al momento de correr el código
+     // un inventario de carros al momento de correr el código
      // y presionar R en menú.
      cout << "----------- Este es el menú de CarRental -----------" << endl
           << endl;
@@ -101,7 +101,7 @@ int main()
           }
           else if (s == 'S')
           {
-               cout << "GRACIASSS POR HABER ENTRADO A CARENTAL, VUELVE PRONTOOO. " << endl
+               cout << "GRACIASSS POR HABER ENTRADO A CAR RENTAL, VUELVE PRONTOOO. " << endl
                     << endl;
                break;
           }
