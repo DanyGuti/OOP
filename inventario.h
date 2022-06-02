@@ -22,7 +22,8 @@ class Inventary
 private:
     uint id;
 
-    // Declaro métodos públicos y delcaro el apuntador de tipo Carro para usar polimorfismo
+    // Declaro métodos públicos y delcaro el apuntador de tipo Carro para
+    // acceder a los métodos de Car con memoria dinámica y apuntadores
     // También constructor por default
 public:
     Car *cars[num_max_cars];
@@ -42,7 +43,7 @@ public:
 };
 
 // Método que crea SUV con memoria dinámica
-// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// se crea el objeto en tiempo de ejecución para usar polimorfismo
 // en otros métodos
 void Inventary::constructSuv(string brand, float performance, string color, uint price)
 {
@@ -53,7 +54,7 @@ void Inventary::constructSuv(string brand, float performance, string color, uint
 };
 
 // Método que crea Luxury con memoria dinámica
-// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// se crea el objeto en tiempo de ejecución para usar polimorfismo
 // en otros métodos
 void Inventary::constructLuxury(string brand, float performance, string color, uint price)
 {
@@ -64,7 +65,7 @@ void Inventary::constructLuxury(string brand, float performance, string color, u
 };
 
 // Método que crea allTerrain con memoria dinámica
-// se crea el obeto en tiempo de ejecución para usar polimorfismo
+// se crea el objeto en tiempo de ejecución para usar polimorfismo
 // en otros métodos
 void Inventary::constructAllTerrain(string brand, float performance, string color, uint price)
 {
@@ -80,9 +81,10 @@ void Inventary::constructAllTerrain(string brand, float performance, string colo
 bool Inventary::showByPrice()
 {
     float perform;
-    string brand, color;
-    uint price, idDel;
+    string brand, color, type;
+    uint price, idDel, seats;
     bool flag = false;
+    bool transm;
     cout << "Estos son los datos de los carros disponibles para que puedas reservarlos: " << endl;
     for (int i = 0; i < id; i++)
     {
@@ -99,37 +101,35 @@ bool Inventary::showByPrice()
     cin >> perform;
     for (int i = 0; i < id; i++)
     {
-        if (cars[i]->getPrice() == price && cars[i]->getColor() == color && cars[i]->getBrand() == brand)
+        if (cars[i]->getPrice() == price && cars[i]->getColor() == color && cars[i]->getBrand() == brand && cars[i]->getPerform() == perform)
         {
             Inventary::showCar(i);
             idDel = Inventary::identifier(i);
             Inventary::deleteCar(idDel);
             flag = true;
         }
-        else
-        {
-            cout << "No has escrito bien todos los datos...." << endl;
-            flag = false;
-            break;
-        }
     }
     if (flag == true)
+    {
         return true;
+    }
     else
         return false;
 };
 
 // Método que recibe ID de iteración de método
-// en el que se haya encontrado un price del input
-// para poder eliminar ese car de acuerdo a ese ID
-// llamando al método eliminar car y el destructor
+// showByPrice()
+// en el que se haya encontrado un precio del input
+// coincidiendo con el inventario
+// para poder eliminar ese carro de acuerdo a ese ID
+// llamando al método  deleteCar y al destructor
 uint Inventary::identifier(int num)
 {
     return cars[num]->getId();
 };
 
 // Creación de cars en memoria dinámica con "new"
-// que apunta a las clases heredadas de car
+// que apunta a las clases heredadas de Car
 // se crea el obeto en tiempo de ejecución para usar polimorfismo
 // en otros métodos
 void Inventary::addCars()
@@ -166,7 +166,7 @@ bool Inventary::searchCar(string brand, float performance, string color, bool tr
     bool flag = false;
     for (int i = 0; i < id; i++)
     {
-        if (cars[i]->getPerform() == performance && cars[i]->getBrand() == brand && cars[i]->getColor() == color && cars[i]->getTransm() == transmission && cars[i]->getType() == type && cars[i]->getPrice() == price)
+        if (cars[i]->getPerform() == performance && cars[i]->getBrand() == brand && cars[i]->getColor() == color && cars[i]->getTransm() == transmission && cars[i]->getType() == type && cars[i]->getPrice() == price && cars[i]->getSeats() == seats)
             flag = true;
     }
     if (flag == true)
@@ -196,7 +196,7 @@ void Inventary::countCarsbyType()
     cout << "Hay: " << luxury << " carros type 'luxury' en el inventario." << endl;
 };
 
-// Se elimina un car cada vez que se reserva
+// Se elimina un carro cada vez que se reserva
 // esto con el ID y se llama al destructor
 // de Car
 void Inventary::deleteCar(uint iden)
@@ -211,7 +211,7 @@ void Inventary::deleteCar(uint iden)
     id--;
 };
 
-// Método que cambia el price de algún carro
+// Método que cambia el precio de algún carro
 // por las especificaciones
 void Inventary::changePrices()
 {
@@ -243,11 +243,6 @@ void Inventary::changePrices()
         {
             cars[i]->setPrice(new_price);
         }
-        else
-        {
-            cout << "No has escrito bien los datos." << endl
-                 << endl;
-        }
     }
 };
 
@@ -269,7 +264,7 @@ void Inventary::showCars()
         {
             cout << "Marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " color: "
                  << cars[i]->getColor() << " transmisión: "
-                 << "manual"
+                 << "automático"
                  << " tipo: "
                  << cars[i]->getType() << " precio: " << cars[i]->getPrice() << " asientos: " << cars[i]->getSeats() << " id: " << cars[i]->getId() << endl;
         }
@@ -292,7 +287,7 @@ void Inventary::showCar(int i)
     {
         cout << "Marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " color: "
              << cars[i]->getColor() << " transmisión: "
-             << "manual"
+             << "automático"
              << " tipo: "
              << cars[i]->getType() << " precio: " << cars[i]->getPrice() << " asientos: " << cars[i]->getSeats() << " id: " << cars[i]->getId() << endl;
     }
