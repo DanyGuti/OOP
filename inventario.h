@@ -109,12 +109,7 @@ bool Inventary::showByPrice()
             flag = true;
         }
     }
-    if (flag == true)
-    {
-        return true;
-    }
-    else
-        return false;
+    return flag;
 };
 
 // Método que recibe ID de iteración de método
@@ -169,10 +164,7 @@ bool Inventary::searchCar(string brand, float performance, string color, bool tr
         if (cars[i]->getPerform() == performance && cars[i]->getBrand() == brand && cars[i]->getColor() == color && cars[i]->getTransm() == transmission && cars[i]->getType() == type && cars[i]->getPrice() == price && cars[i]->getSeats() == seats)
             flag = true;
     }
-    if (flag == true)
-        return true;
-    else
-        return false;
+    return flag;
 };
 
 // Método que imprime la cantidad de carros por tipo
