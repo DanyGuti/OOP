@@ -20,8 +20,8 @@ utilizando sus características.
 # Correr el programa
 Para poder correr el programa, se deben de descargar o 
 git pull de: "carro.h", "inventario.h", "CarRental.h" y 
-"main.cpp", se puede correr con cualquier compilador de 
-c++ (de preferencia c++11 o más reciente):  
+"main.cpp", se puede correr con c++11 en adelante
+(de preferencia c++11):  
 # 
 g++ -std=c++11 main.cpp -o "nombre de ejecutable"
 #
