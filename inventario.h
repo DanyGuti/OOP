@@ -1,51 +1,66 @@
 /*
-Proyecto hecho por Daniel Gutiérrez Gómez
-A01068056
-Esta es el documento de la clase inventary::
-composición con Car hereda a 3 subclases:
-Suv, allTerrain, Luxury
-*/
+ *
+ * Proyecto hecho por Daniel Gutiérrez Gómez
+ * A01068056
+ * Esta es el documento de la clase inventary::
+ * composición con Car hereda a 3 subclases:
+ * Suv, allTerrain, Luxury
+ * Clase que sirve para hacer manipulación de
+ * los objetos de tipo Carro y sus hijos
+ * (Suv, allTerrain, Luxury)
+ */
 #ifndef INVENTARIO_H_
 #define INVENTARIO_H_
 #include <string>
 #include <vector>
 #include <iostream>
-#include "carro.h"
+#include "carro.h" // Biblioteca con los objetos a usar
 
 using namespace std;
 
 // Constante de tamaño máx de arreglo
 const int num_max_cars = 100;
+
+// Declaración de clase Inventary
 class Inventary
 {
-    // Variable privada
+    // Variable privada de instancia
 private:
-    uint id;
-
-    // Declaro métodos públicos y delcaro el apuntador de tipo Carro para
-    // acceder a los métodos de Car con memoria dinámica y apuntadores
-    // También constructor por default
+    unsigned int id;
+    /*
+     * Declaro métodos públicos y declaro el apuntador de tipo Carro para
+     * acceder a los métodos de Car con memoria dinámica y apuntadores.
+     */
 public:
     Car *cars[num_max_cars];
-    Inventary() : id(0){};
+    Inventary() : id(0){}; // Constructor por default
     void addCars();
-    bool searchCar(string brand, float performance, string color, bool transmission, uint seats, string type, uint price);
+    bool searchCar(string brand, float performance, string color, bool transmission, unsigned int seats, string type, unsigned int price);
     void countCarsbyType();
-    void deleteCar(uint iden);
+    void deleteCar(unsigned int iden);
     void changePrices();
     void showCars();
     bool showByPrice();
-    uint identifier(int num);
-    void constructSuv(string brand, float performance, string color, uint price);
-    void constructLuxury(string brand, float performance, string color, uint price);
-    void constructAllTerrain(string brand, float performance, string color, uint price);
+    unsigned int identifier(int num);
+    void constructSuv(string brand, float performance, string color, unsigned int price);
+    void constructLuxury(string brand, float performance, string color, unsigned int price);
+    void constructAllTerrain(string brand, float performance, string color, unsigned int price);
     void showCar(int iterator);
 };
 
-// Método que crea SUV con memoria dinámica
-// se crea el objeto en tiempo de ejecución para usar polimorfismo
-// en otros métodos
-void Inventary::constructSuv(string brand, float performance, string color, uint price)
+/**
+ * Método que crea SUV con memoria dinámica y hace append
+ * en cars[].
+ * Se crea el objeto en tiempo de ejecución para usar polimorfismo
+ * en otros métodos de esta misma clase Inventary.
+ *
+ * @param string marca
+ * @param float rendimiento
+ * @param string color
+ * @param unsignedint precio
+ * @return
+ */
+void Inventary::constructSuv(string brand, float performance, string color, unsigned int price)
 {
     cars[id] = new Suv(brand, performance, color, id, price);
     id++;
@@ -53,10 +68,19 @@ void Inventary::constructSuv(string brand, float performance, string color, uint
     Inventary::showCars();
 };
 
-// Método que crea Luxury con memoria dinámica
-// se crea el objeto en tiempo de ejecución para usar polimorfismo
-// en otros métodos
-void Inventary::constructLuxury(string brand, float performance, string color, uint price)
+/**
+ * Método que crea Luxury con memoria dinámica y hace append
+ * en cars[].
+ * Se crea el objeto en tiempo de ejecución para usar polimorfismo
+ * en otros métodos.
+ *
+ * @param string marca
+ * @param float rendimiento
+ * @param string color
+ * @param unsignedint precio
+ * @return
+ */
+void Inventary::constructLuxury(string brand, float performance, string color, unsigned int price)
 {
     cars[id] = new Luxury(brand, performance, color, id, price);
     id++;
@@ -64,10 +88,19 @@ void Inventary::constructLuxury(string brand, float performance, string color, u
     Inventary::showCars();
 };
 
-// Método que crea allTerrain con memoria dinámica
-// se crea el objeto en tiempo de ejecución para usar polimorfismo
-// en otros métodos
-void Inventary::constructAllTerrain(string brand, float performance, string color, uint price)
+/**
+ * Método que crea allTerrain con memoria dinámica y hace append
+ * en cars[].
+ * Se crea el objeto en tiempo de ejecución para usar polimorfismo
+ * en otros métodos.
+ *
+ * @param string marca
+ * @param float rendimiento
+ * @param string color
+ * @param unsignedint precio
+ * @return
+ */
+void Inventary::constructAllTerrain(string brand, float performance, string color, unsigned int price)
 {
     cars[id] = new allTerrain(brand, performance, color, id, price);
     id++;
@@ -76,13 +109,22 @@ void Inventary::constructAllTerrain(string brand, float performance, string colo
     Inventary::showCars();
 };
 
-// Método que regresa true si de un input se recibe un price
-// disponible del inventary
+/**
+ * Método que enseña los carros
+ * y se utiliza en método bookCars()
+ * para poder reservar un carro con
+ * ciertas especificaciones
+ * Iteración de cars[] e imprime especificaciones.
+ *
+ * @param
+ * @return bool si se hace match con especificaciones dadas
+ * por usuario
+ */
 bool Inventary::showByPrice()
 {
     float perform;
     string brand, color, type;
-    uint price, idDel, seats;
+    unsigned int price, idDel, seats;
     bool flag = false;
     bool transm;
     cout << "Estos son los datos de los carros disponibles para que puedas reservarlos: " << endl;
@@ -112,21 +154,34 @@ bool Inventary::showByPrice()
     return flag;
 };
 
-// Método que recibe ID de iteración de método
-// showByPrice()
-// en el que se haya encontrado un precio del input
-// coincidiendo con el inventario
-// para poder eliminar ese carro de acuerdo a ese ID
-// llamando al método  deleteCar y al destructor
-uint Inventary::identifier(int num)
+/**
+ * Método que recibe ID de iteración de método
+ * showByPrice()
+ * en el que se haya encontrado un precio del input
+ * coincidiendo con el inventario esto
+ * para poder eliminar ese carro de acuerdo a ese ID
+ * llamando al método deleteCar y al destructor.
+ *
+ * @param int numero que coincide con posición de cierto carro
+ * especificado
+ * @return unsigned int id que sirve para eliminar carro[id]
+ */
+unsigned int Inventary::identifier(int num)
 {
     return cars[num]->getId();
 };
 
-// Creación de cars en memoria dinámica con "new"
-// que apunta a las clases heredadas de Car
-// se crea el obeto en tiempo de ejecución para usar polimorfismo
-// en otros métodos
+/**
+ * Creación de cars en memoria dinámica con "new"
+ * se hace append en cars[]
+ *
+ * Genera objetos de tipo Suv, Luxury y allTerrain
+ * para poder hacer pruebas (hardcodeado).
+ * No se usará en un programa de verdad.
+ *
+ * @param
+ * @return
+ */
 void Inventary::addCars()
 {
     cars[id] = new Luxury("Audi", 13.2, "rojo", id, 1900);
@@ -154,9 +209,21 @@ void Inventary::addCars()
     cars[id] = new allTerrain("Ford", 13.3, "gris", id, 2200);
     id++;
 };
-// Iteración en inventario de carros para ver si coincide con
-// tipos de datos recibidos
-bool Inventary::searchCar(string brand, float performance, string color, bool transmission, uint seats, string type, uint price)
+
+/**
+ * Método que busca un carro en cars[]
+ * y ve si coincide con datos recibidos.
+ *
+ * @param string marca
+ * @param float rendimiento
+ * @param string color
+ * @param bool transmisión
+ * @param unsignedint asientos
+ * @param string tipo: "lujo", "suv", "todoterreno"
+ * @param unsigned int precio
+ * @return bool que si coincide con valores recibidos regresa true
+ */
+bool Inventary::searchCar(string brand, float performance, string color, bool transmission, unsigned int seats, string type, unsigned int price)
 {
     bool flag = false;
     for (int i = 0; i < id; i++)
@@ -167,13 +234,18 @@ bool Inventary::searchCar(string brand, float performance, string color, bool tr
     return flag;
 };
 
-// Método que imprime la cantidad de carros por tipo
-// utilizando apuntadores a otros métodos
+/**
+ * Método que imprime la cantidad de carros
+ * dados por tipo: Suv, allTerrainn y Luxury.
+ *
+ * @param
+ * @return
+ */
 void Inventary::countCarsbyType()
 {
-    uint suv = 0;
-    uint all_terrain = 0;
-    uint luxury = 0;
+    unsigned int suv = 0;
+    unsigned int all_terrain = 0;
+    unsigned int luxury = 0;
     for (int i = 0; i < id; i++)
     {
         if (cars[i]->getType() == "suv")
@@ -188,10 +260,17 @@ void Inventary::countCarsbyType()
     cout << "Hay: " << luxury << " carros type 'luxury' en el inventario." << endl;
 };
 
-// Se elimina un carro cada vez que se reserva
-// esto con el ID y se llama al destructor
-// de Car
-void Inventary::deleteCar(uint iden)
+/**
+ * Método que elimina un carro de cars[]
+ * se elimina cada vez que se reserva un carro
+ * en bookCars().
+ * Esto con el ID y se llama al destructor virtual
+ * de Car.
+ *
+ * @param unsignedint identificador dado por método identifier(int num)
+ * @return
+ */
+void Inventary::deleteCar(unsigned int iden)
 {
     for (int i = 0; i < id; i++)
     {
@@ -203,12 +282,17 @@ void Inventary::deleteCar(uint iden)
     id--;
 };
 
-// Método que cambia el precio de algún carro
-// por las especificaciones
+/**
+ * Método que cambia el precio de algún carro
+ * de cars[] mediante las especificaciones.
+ *
+ * @param
+ * @return
+ */
 void Inventary::changePrices()
 {
     string type, color, brand;
-    uint new_price, price, seats;
+    unsigned int new_price, price, seats;
     float performance;
     bool transmission;
     cout << "Por favor escribe las especificaciones del tipo de carro que deseas cambiarle el precio: " << endl;
@@ -238,8 +322,13 @@ void Inventary::changePrices()
     }
 };
 
-// Método que muestra todas las características
-// de los carros disponibles en el inventario
+/**
+ * Método que muestras las características
+ * de los carros disponibles en inventario (cars[]).
+ *
+ * @param
+ * @return
+ */
 void Inventary::showCars()
 {
     for (int i = 0; i < id; i++)
@@ -262,8 +351,15 @@ void Inventary::showCars()
         }
     }
 };
-// Método que muestra todas las características
-// del carro en cierto índice (se utilizó para lógica de otro método: showByPrice())
+
+/**
+ * Método que muestras las características
+ * del carro disponible en inventario (cars[i])
+ * dado un iterador de un for loop.
+ *
+ * @param
+ * @return
+ */
 void Inventary::showCar(int i)
 {
     cout << "Se te ha reservado tu carro con las siguientes características: " << endl;
@@ -285,4 +381,4 @@ void Inventary::showCar(int i)
     }
 };
 
-#endif
+#endif // INVENTARIO_H_
