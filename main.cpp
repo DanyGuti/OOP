@@ -4,7 +4,7 @@ A01068056
 */
 #include <iostream>
 #include <string>
-#include "CarRental.h"
+#include "CarRental.h" // Biblioteca con el objeto a usar
 
 using namespace std;
 
@@ -12,18 +12,21 @@ int main()
 {
      char s = ' ';                        // Variable para hacer el menú
      string optionCeo = " ";              // Variable para hacer el menú
-     CarRental *Alamos = new CarRental(); // Apuntador de tipo CarRental para acceder con apuntadores
-                                          // a métodos de CarRental con memoria dinámica
+     CarRental *Alamos = new CarRental(); // Apuntador de tipo CarRental para acceder con apuntadores\
+                                          a métodos de CarRental con memoria dinámica
 
-     // El menú se puede modificar, solamente se pusieron métodos
-     // de agregar carros para la demostración, en realidad, cada
-     // vez que se ingresa como CEO se agregan carros al inventario
-     // porque se tiene pensado que la empresa ya tiene un inventario
-     // por default y que se cambie el precio del carro seleccionado.
-     //
-     // De igual manera, si quieres reservar un carro, ya se tiene contemplado
-     // un inventario de carros al momento de correr el código
-     // y presionar R en menú.
+     /*
+      * El menú se puede modificar, solamente se pusieron métodos
+      * de agregar carros para la demostración (métodos
+      * hardcodeados de crear inventario). En realidad, cada
+      * vez que se ingresa como CEO se agregan carros al inventario
+      * porque se tiene pensado que la empresa ya tiene un inventario
+      * por default y que se cambie el precio del carro seleccionado.
+
+      * De igual manera, si quieres reservar un carro, ya se tiene
+      * contemplado un inventario de carros al momento de correr
+      * el código.
+      */
      cout << "----------- Este es el menú de CarRental -----------" << endl
           << endl;
      cout << "    En este programa tienes dos opciones    " << endl
