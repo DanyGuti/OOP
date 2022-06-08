@@ -1,26 +1,32 @@
 /*
-Proyecto hecho por Daniel Gutiérrez Gómez
-A01068056
-Esta es el documento de la clase Car Rental
-composición con Inventario
-*/
+ * Proyecto hecho por Daniel Gutiérrez Gómez
+ * A01068056.
+ * Este es el documento de la clase CarRental
+ * composición con inventario.
+ *
+ * Clase que hace manipulación de métodos de
+ * clase Inventary.
+ */
 #ifndef CARRENTAL_H_
 #define CARRENTAL_H_
 #include <string>
 #include <iostream>
-#include "inventario.h"
+#include "inventario.h" // Biblioteca con el objeto a usar
 using namespace std;
 
+// Declaración de clase CarRental
 class CarRental
 {
-    // Variable privada
+    // Variable privada de instancia
 private:
-    uint id;
+    unsigned int id;
 
 public:
-    // Declaro métodos públicos y delcaro el apuntador de tipo Inventary acceder
-    // a los métodos de Inventary con apuntadores con memoria dináamica
-    // También constructor por default
+    /*
+     * Declaro métodos públicos y delcaro el apuntador de tipo Inventary acceder
+     * a los métodos de Inventary con apuntadores y memoria dinámica.
+     * También constructor por default.
+     */
     Inventary *carInventary = new Inventary();
     CarRental() : id(0){};
     void showCarsInventary();
@@ -30,23 +36,47 @@ public:
     void changePrice();
 };
 
+/**
+ * Método que cambia de precios llamando
+ * a método changePrices() de Inventary.
+ *
+ * @param
+ * @return
+ */
 void CarRental::changePrice()
 {
     carInventary->changePrices();
 };
-// Método que agrega carros a la empresa de renta de carros
+
+/**
+ * Método que agrega carros a la empresa de renta de carros
+ * llamando al método addCars() de Inventary.
+ *
+ * @param
+ * @return
+ */
 void CarRental::addCarsInventary()
 {
     carInventary->addCars();
 };
 
-// Método que agrega carros a la empresa por tipo de carro
+/**
+ * Método que agrega carros a la empresa por tipo de carro
+ * si se ingresa suv, se 'construye' un Suv, si se ingresa
+ * allTerrain, se construye un 'allTerrain' y si se ingresa
+ * Luxury, se construye un Luxury, esto llamando a los mé-
+ * todos correspondientes de Inventary.
+ * Método que solo será usado si eres CEO del CarRental.
+ *
+ * @return
+ * @param
+ */
 void CarRental::addCarsInventaryType()
 {
     string type;
     string brand, color;
     float perform;
-    uint price;
+    unsigned int price;
     bool flag = true;
     cout << "Hola jefe, por favor escribe que tipo de carro deseas agregar al inventario: suv, lujo o todoterreno: " << endl
          << endl;
@@ -103,13 +133,28 @@ void CarRental::addCarsInventaryType()
     }
 };
 
-// Mostrar inventario actual de carros
+/**
+ *  Mostrar inventario actual de carros
+ * llamando a método showCars() de Inventary
+ *
+ * @param
+ * @return
+ */
 void CarRental::showCarsInventary()
 {
     carInventary->showCars();
 };
 
-// Reservar carro
+/**
+ * Método para reservar carro
+ * llamando a método de Inventary
+ * showByPrice().
+ * Nos enseña carros disponibles en
+ * inventario y será utilizado en main()
+ *
+ * @param
+ * @return void
+ */
 void CarRental::bookCars()
 {
     bool flag = true;
@@ -129,4 +174,4 @@ void CarRental::bookCars()
         }
     }
 };
-#endif
+#endif // CARRENTAL_H_
