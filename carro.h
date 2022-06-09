@@ -31,7 +31,7 @@ public:
     Car(string brand_s, float performance_s, string color_s,
         bool transmission_s, unsigned int seats_s, unsigned int id_s, string type_s) : brand(brand_s), performance(performance_s), color(color_s),
                                                                                        transmission(transmission_s), seats(seats_s), id(id_s), type(type_s){};
-    virtual ~Car() { cout << "Destructor called BASE"; } // Destructor de clase car
+    virtual ~Car(){}; // Destructor de clase car
     string getBrand() { return brand; }
     float getPerform() { return performance; }
     string getColor() { return color; }
@@ -59,7 +59,7 @@ private:
 public: // brand, rend, color, trans, seats, id, type
     Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
     Suv(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
-    ~Suv() { cout << "Destructor called SUV"; } // Destructor de Suv
+    ~Suv(){}; // Destructor de Suv
     /**
      * setPrice() recibe un nuevo precio en método
      * changePrices() de clase Inventary
@@ -67,7 +67,7 @@ public: // brand, rend, color, trans, seats, id, type
      * es una sobreescritura, pues en clase base
      * no se declaró lo que hacia el método virtual
      *
-     * @param unsigned int nuevo_precio
+     * @param unsignedint nuevo_precio
      * @return void solo cambia el precio
      */
     void setPrice(unsigned int new_price) { price = new_price; }
@@ -94,7 +94,7 @@ private:
 public: // brand, rend, color, trans, seats, id, type
     allTerrain() : Car("", 0.0, "", false, 5, 0, "todoterreno"){};
     allTerrain(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
-    ~allTerrain() { cout << "Destructor called allTerrain"; } // Destructor de allTerrain
+    ~allTerrain(){}; // Destructor de allTerrain
 
     /**
      * setPrice() recibe un nuevo precio en método
@@ -103,7 +103,7 @@ public: // brand, rend, color, trans, seats, id, type
      * es una sobreescritura, pues en clase base
      * no se declaró lo que hacia el método virtual
      *
-     * @unsigned int nuevo_precio
+     * @param unsignedint nuevo_precio
      * @return void solo cambia el precio
      */
     void setPrice(unsigned int new_price) { price = new_price; }
@@ -130,7 +130,7 @@ private:
 public: // brand, rend, color, trans, seats, id, type
     Luxury() : Car("", 0.0, "", true, 2, 0, "lujo"){};
     Luxury(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
-    ~Luxury() { cout << "Destructor called LUJO "; } // Destructor de Luxury
+    ~Luxury(){}; // Destructor de Luxury
 
     /**
      * setPrice() recibe un nuevo precio en método
@@ -139,7 +139,7 @@ public: // brand, rend, color, trans, seats, id, type
      * es una sobreescritura, pues en clase base
      * no se declaró lo que hacia el método virtual
      *
-     * @unsigned int nuevo_precio
+     * @param unsigned int nuevo_precio
      * @return void solo cambia el precio
      */
     void setPrice(unsigned int new_price) { price = new_price; }
