@@ -54,12 +54,6 @@ class Suv : public Car
     // Declaro variables de instancia de objeto
 private:
     unsigned int price; // Privado porque cada tipo de carro tiene su precio (si es el mismo carro)
-
-    // Declaro métodos públicos que tendrá el objeto
-public: // brand, rend, color, trans, seats, id, type
-    Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
-    Suv(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
-    ~Suv(){}; // Destructor de Suv
     /**
      * setPrice() recibe un nuevo precio en método
      * changePrices() de clase Inventary
@@ -81,6 +75,12 @@ public: // brand, rend, color, trans, seats, id, type
      * @return unsigned int price dado por constructor
      */
     unsigned int getPrice() { return price; }
+
+    // Declaro métodos públicos que tendrá el objeto
+public: // brand, rend, color, trans, seats, id, type
+    Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
+    Suv(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
+    ~Suv(){}; // Destructor de Suv
 };
 
 // Declaración de objeto allTerrain que hereda de Car
@@ -90,12 +90,6 @@ class allTerrain : public Car
 private:
     unsigned int price; // Privado porque cada tipo de carro tiene su precio (si es el mismo carro)
 
-    // Declaro métodos públicos que tendrá el objeto
-public: // brand, rend, color, trans, seats, id, type
-    allTerrain() : Car("", 0.0, "", false, 5, 0, "todoterreno"){};
-    allTerrain(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
-    ~allTerrain(){}; // Destructor de allTerrain
-
     /**
      * setPrice() recibe un nuevo precio en método
      * changePrices() de clase Inventary
@@ -117,6 +111,12 @@ public: // brand, rend, color, trans, seats, id, type
      * @return unsigned int price dado por constructor
      */
     unsigned int getPrice() { return price; }
+
+    // Declaro métodos públicos que tendrá el objeto
+public: // brand, rend, color, trans, seats, id, type
+    allTerrain() : Car("", 0.0, "", false, 5, 0, "todoterreno"){};
+    allTerrain(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
+    ~allTerrain(){}; // Destructor de allTerrain
 };
 
 // Declaración de objeto Luxury que hereda de Car
@@ -125,13 +125,6 @@ class Luxury : public Car
     // Declaro variables de instancia de objeto
 private:
     unsigned int price; // Privado porque cada tipo de carro tiene su precio (si es el mismo carro)
-
-    // Declaro métodos públicos que tendrá el objeto
-public: // brand, rend, color, trans, seats, id, type
-    Luxury() : Car("", 0.0, "", true, 2, 0, "lujo"){};
-    Luxury(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
-    ~Luxury(){}; // Destructor de Luxury
-
     /**
      * setPrice() recibe un nuevo precio en método
      * changePrices() de clase Inventary
@@ -139,7 +132,7 @@ public: // brand, rend, color, trans, seats, id, type
      * es una sobreescritura, pues en clase base
      * no se declaró lo que hacia el método virtual
      *
-     * @param unsigned int nuevo_precio
+     * @param unsignedint nuevo_precio
      * @return void solo cambia el precio
      */
     void setPrice(unsigned int new_price) { price = new_price; }
@@ -153,5 +146,11 @@ public: // brand, rend, color, trans, seats, id, type
      * @return unsigned int price dado por constructor
      */
     unsigned int getPrice() { return price; }
+
+    // Declaro métodos públicos que tendrá el objeto
+public: // brand, rend, color, trans, seats, id, type
+    Luxury() : Car("", 0.0, "", true, 2, 0, "lujo"){};
+    Luxury(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
+    ~Luxury(){}; // Destructor de Luxury
 };
 #endif // CARRO_H_
