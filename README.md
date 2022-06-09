@@ -13,9 +13,10 @@ del carro como: color, marca, transmisión, número de asientos,
 rendimiento y su ID o placa.
 
 El funcionamiento que se tiene desde el punto de vista CEO
-es el de poder agregar carros, con las características antes
+es el de poder agregar carros "uno por uno": dependiendo
+del tipo, o por stack, con las características antes
 mencionadas, además se puede cambiar el precio de un carro
-utilizando sus características.
+pidiendo las características de un carro en el inventario.
 
 # Correr el programa
 Para poder correr el programa, se deben de descargar o 
