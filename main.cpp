@@ -53,7 +53,6 @@ int main()
                cout << endl
                     << endl;
                Alamos->bookCars();
-               // REVISAR CON PROFE Alamos->showCarsInventary();
                break;
           }
           else if (s == 'C')
