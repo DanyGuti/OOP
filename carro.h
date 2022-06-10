@@ -51,7 +51,9 @@ public:
 class Suv : public Car
 {
 
-    // Declaro variables de instancia de objeto
+    /* Declaro variables de instancia de objeto
+     * Y métodos privados
+     */
 private:
     unsigned int price; // Privado porque cada tipo de carro tiene su precio (si es el mismo carro)
     /**
@@ -76,7 +78,7 @@ private:
      */
     unsigned int getPrice() { return price; }
 
-    // Declaro métodos públicos que tendrá el objeto
+    // Declaro métodos públicos que tendrá el objeto (constructores y destructor)
 public: // brand, rend, color, trans, seats, id, type
     Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
     Suv(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
@@ -86,7 +88,9 @@ public: // brand, rend, color, trans, seats, id, type
 // Declaración de objeto allTerrain que hereda de Car
 class allTerrain : public Car
 {
-    // Declaro variables de instancia de objeto
+    /* Declaro variables de instancia de objeto
+     * Y métodos privados
+     */
 private:
     unsigned int price; // Privado porque cada tipo de carro tiene su precio (si es el mismo carro)
 
@@ -112,7 +116,7 @@ private:
      */
     unsigned int getPrice() { return price; }
 
-    // Declaro métodos públicos que tendrá el objeto
+    // Declaro métodos públicos que tendrá el objeto (constructores y destructor)
 public: // brand, rend, color, trans, seats, id, type
     allTerrain() : Car("", 0.0, "", false, 5, 0, "todoterreno"){};
     allTerrain(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
@@ -122,7 +126,9 @@ public: // brand, rend, color, trans, seats, id, type
 // Declaración de objeto Luxury que hereda de Car
 class Luxury : public Car
 {
-    // Declaro variables de instancia de objeto
+    /* Declaro variables de instancia de objeto
+     * Y métodos privados
+     */
 private:
     unsigned int price; // Privado porque cada tipo de carro tiene su precio (si es el mismo carro)
     /**
@@ -147,7 +153,7 @@ private:
      */
     unsigned int getPrice() { return price; }
 
-    // Declaro métodos públicos que tendrá el objeto
+    // Declaro métodos públicos que tendrá el objeto (constructores y destructor)
 public: // brand, rend, color, trans, seats, id, type
     Luxury() : Car("", 0.0, "", true, 2, 0, "lujo"){};
     Luxury(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
