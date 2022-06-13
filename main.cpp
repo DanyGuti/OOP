@@ -45,7 +45,7 @@ int main()
           cin >> s;
           if (s == 'R')
           {
-               cout << "Nota, a la hora de reservar carro se muy específico y teclea bien el carro que quieres" << endl
+               cout << "Nota, a la hora de reservar carro sé muy específico y teclea bien el carro que quieres" << endl
                     << endl;
                cout << "¡Escribiendo bien la marca, el rendimiento y el color por favor!" << endl
                     << endl;
@@ -62,7 +62,8 @@ int main()
                     cout << "¿Deseas agregar carros por tipo uno por uno? ¿O carros por stack?, o ¿ver el inventario?" << endl;
                     cout << "O, ¿cambiar el precio de un carro?" << endl
                          << endl;
-                    cout << "Teclea 'uno' si quieres agregar uno por uno, o 'stack' si deseas agregar por stack, o 'cambiar' para cambiar precio de carros " << endl;
+                    cout << "Teclea 'uno' si quieres agregar uno por uno, o 'stack' si deseas agregar por stack, o 'cambiar' para cambiar el precio de un carro " << endl;
+                    cout << "de alguno de los carros disponibles en el inventario: " << endl;
                     cin >> optionCeo;
                     if (optionCeo == "stack")
                     {
@@ -94,7 +95,7 @@ int main()
                     else
                     {
                          cout << "Solo puedes escribir las opciones antes dichas. " << endl;
-                         cout << " 'uno' o 'stack' " << endl;
+                         cout << " 'uno', 'stack' o 'cambiar'  " << endl;
                          continue;
                     }
                     break;
