@@ -167,7 +167,7 @@ void CarRental::bookCars()
         }
         else
         {
-            cout << "No se encotró el carro que quieres. " << endl
+            cout << "No se encontró el carro que quieres. " << endl
                  << endl;
             flag = true;
             break;
