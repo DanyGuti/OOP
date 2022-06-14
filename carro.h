@@ -28,9 +28,14 @@ public:
     Car() : brand(""), performance(0.0), color(""),
             transmission(false), seats(0), id(0), type(""){}; // Constructor por default
 
-    Car(string brand_s, float performance_s, string color_s,
-        bool transmission_s, unsigned int seats_s, unsigned int id_s, string type_s) : brand(brand_s), performance(performance_s), color(color_s),
-                                                                                       transmission(transmission_s), seats(seats_s), id(id_s), type(type_s){};
+    Car(string brand_s,
+        float performance_s,
+        string color_s,
+        bool transmission_s,
+        unsigned int seats_s,
+        unsigned int id_s,
+        string type_s) : brand(brand_s), performance(performance_s), color(color_s),
+                         transmission(transmission_s), seats(seats_s), id(id_s), type(type_s){};
     virtual ~Car(){}; // Destructor de clase car
     string getBrand() { return brand; }
     float getPerform() { return performance; }
@@ -58,7 +63,11 @@ private:
     // Declaro métodos públicos que tendrá el objeto (constructores, destructor y métodos)
 public: // brand, rend, color, trans, seats, id, type
     Suv() : Car("", 0.0, "", true, 4, 0, "suv"){};
-    Suv(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
+    Suv(string brand,
+        float performance,
+        string color,
+        unsigned int id,
+        unsigned int price_s) : Car(brand, performance, color, true, 4, id, "suv"), price(price_s){};
     ~Suv(){}; // Destructor de Suv
     /**
      * setPrice() recibe un nuevo precio en método
@@ -93,7 +102,11 @@ private:
     // Declaro métodos públicos que tendrá el objeto (constructores y destructor)
 public: // brand, rend, color, trans, seats, id, type
     allTerrain() : Car("", 0.0, "", false, 5, 0, "todoterreno"){};
-    allTerrain(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
+    allTerrain(string brand,
+               float performance,
+               string color,
+               unsigned int id,
+               unsigned int price_s) : Car(brand, performance, color, false, 5, id, "todoterreno"), price(price_s){};
     ~allTerrain(){}; // Destructor de allTerrain
     /**
      * setPrice() recibe un nuevo precio en método
@@ -129,7 +142,11 @@ private:
     // Declaro métodos públicos que tendrá el objeto (constructores y destructor)
 public: // brand, rend, color, trans, seats, id, type
     Luxury() : Car("", 0.0, "", true, 2, 0, "lujo"){};
-    Luxury(string brand, float performance, string color, unsigned int id, unsigned int price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
+    Luxury(string brand,
+           float performance,
+           string color,
+           unsigned int id,
+           unsigned int price_s) : Car(brand, performance, color, true, 2, id, "lujo"), price(price_s){};
     ~Luxury(){}; // Destructor de Luxury
     /**
      * setPrice() recibe un nuevo precio en método
