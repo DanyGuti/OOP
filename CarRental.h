@@ -78,7 +78,9 @@ void CarRental::addCarsInventaryType()
     float perform;
     unsigned int price;
     bool flag = true;
-    cout << "Hola jefe, por favor escribe que tipo de carro deseas agregar al inventario: suv, lujo o todoterreno: " << endl
+    cout << "Hola jefe, por favor escribe que tipo de carro deseas agregar al inventario:\
+         suv, lujo o todoterreno: "
+         << endl
          << endl;
     while (flag)
     {
