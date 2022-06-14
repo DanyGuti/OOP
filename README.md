@@ -9,8 +9,7 @@ El funcionamiento que se tiene (desde punto de vista User),
 es básicamente el poder buscar un carro en base a su precio
 y poder reservarlo, esto después de haber enseñado al usuario
 el inventario de carros, mostrando las características más importantes 
-del carro como: color, marca, transmisión, número de asientos,
-rendimiento y su ID o placa.
+del carro como: precio, color, marca, rendimiento y número de asientos.
 
 El funcionamiento que se tiene desde el punto de vista CEO
 es el de poder agregar carros "uno por uno": dependiendo
