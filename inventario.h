@@ -35,7 +35,13 @@ public:
     Car *cars[num_max_cars];
     Inventary() : id(0){}; // Constructor por default
     void addCars();
-    bool searchCar(string brand, float performance, string color, bool transmission, string type, unsigned int price, unsigned int id_s);
+    bool searchCar(string brand,
+                   float performance,
+                   string color,
+                   bool transmission,
+                   string type,
+                   unsigned int price,
+                   unsigned int id_s);
     void countCarsbyType();
     void deleteCar(unsigned int iden);
     void changePrices();
@@ -127,10 +133,16 @@ bool Inventary::showByPrice()
     unsigned int price, idDel, seats;
     bool flag = false;
     bool transm;
-    cout << "Estos son los datos de los carros disponibles para que puedas reservarlos: " << endl;
+    cout << "Estos son los datos de los carros disponibles para\
+         que puedas reservarlos: "
+         << endl;
     for (int i = 0; i < id; i++)
     {
-        cout << "Precio: " << cars[i]->getPrice() << " color: " << cars[i]->getColor() << " marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " asientos: " << cars[i]->getSeats() << endl
+        cout << "Precio: " << cars[i]->getPrice()
+             << " color: " << cars[i]->getColor()
+             << " marca: " << cars[i]->getBrand()
+             << " rendimiento: " << cars[i]->getPerform()
+             << " asientos: " << cars[i]->getSeats() << endl
              << endl;
     }
     cout << "Ahora por favor, escribe el precio del carro que quieres: " << endl;
@@ -143,7 +155,10 @@ bool Inventary::showByPrice()
     cin >> perform;
     for (int i = 0; i < id; i++)
     {
-        if (cars[i]->getPrice() == price && cars[i]->getColor() == color && cars[i]->getBrand() == brand && cars[i]->getPerform() == perform)
+        if (cars[i]->getPrice() == price &&
+            cars[i]->getColor() == color &&
+            cars[i]->getBrand() == brand &&
+            cars[i]->getPerform() == perform)
         {
             Inventary::showCar(i);
             idDel = Inventary::identifier(i);
@@ -223,12 +238,24 @@ void Inventary::addCars()
  * @param unsigned int id_s
  * @return bool que si coincide con valores recibidos regresa true
  */
-bool Inventary::searchCar(string brand, float performance, string color, bool transmission, string type, unsigned int price, unsigned int id_s)
+bool Inventary::searchCar(string brand,
+                          float performance,
+                          string color,
+                          bool transmission,
+                          string type,
+                          unsigned int price,
+                          unsigned int id_s)
 {
     bool flag = false;
     for (int i = 0; i < id; i++)
     {
-        if (cars[i]->getPerform() == performance && cars[i]->getBrand() == brand && cars[i]->getColor() == color && cars[i]->getTransm() == transmission && cars[i]->getType() == type && cars[i]->getPrice() == price && cars[i]->getId() == id_s)
+        if (cars[i]->getPerform() == performance &&
+            cars[i]->getBrand() == brand &&
+            cars[i]->getColor() == color &&
+            cars[i]->getTransm() == transmission &&
+            cars[i]->getType() == type &&
+            cars[i]->getPrice() == price &&
+            cars[i]->getId() == id_s)
         {
             flag = true;
         }
@@ -297,7 +324,9 @@ void Inventary::changePrices()
     unsigned int new_price, price, id_s;
     float performance;
     bool transmission;
-    cout << "Por favor escribe las especificaciones del tipo de carro que deseas cambiarle el precio: " << endl;
+    cout << "Por favor escribe las especificaciones del tipo de carro que\
+         deseas cambiarle el precio: "
+         << endl;
     cout << "El tipo: " << endl;
     cin >> type;
     cout << "La marca: " << endl;
@@ -317,7 +346,13 @@ void Inventary::changePrices()
 
     for (int i = 0; i < id; i++)
     {
-        if (cars[i]->getPerform() == performance && cars[i]->getBrand() == brand && cars[i]->getColor() == color && cars[i]->getTransm() == transmission && cars[i]->getType() == type && cars[i]->getPrice() == price && cars[i]->getId() == id_s)
+        if (cars[i]->getPerform() == performance &&
+            cars[i]->getBrand() == brand &&
+            cars[i]->getColor() == color &&
+            cars[i]->getTransm() == transmission &&
+            cars[i]->getType() == type &&
+            cars[i]->getPrice() == price &&
+            cars[i]->getId() == id_s)
         {
             cars[i]->setPrice(new_price);
             break;
@@ -337,16 +372,24 @@ void Inventary::showCars()
     for (int i = 0; i < id; i++)
     {
 
-        cars[i]->getTransm() == 0 ? (cout << "Marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " color: "
-                                          << cars[i]->getColor() << " transmisión: "
+        cars[i]->getTransm() == 0 ? (cout << "Marca: " << cars[i]->getBrand()
+                                          << " rendimiento: " << cars[i]->getPerform()
+                                          << " color: " << cars[i]->getColor()
+                                          << " transmisión: "
                                           << "manual"
-                                          << " tipo: "
-                                          << cars[i]->getType() << " precio: " << cars[i]->getPrice() << " asientos: " << cars[i]->getSeats() << " id: " << cars[i]->getId() << endl)
-                                  : (cout << "Marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " color: "
-                                          << cars[i]->getColor() << " transmisión: "
+                                          << " tipo: " << cars[i]->getType()
+                                          << " precio: " << cars[i]->getPrice()
+                                          << " asientos: " << cars[i]->getSeats()
+                                          << " id: " << cars[i]->getId() << endl)
+                                  : (cout << "Marca: " << cars[i]->getBrand()
+                                          << " rendimiento: " << cars[i]->getPerform()
+                                          << " color: " << cars[i]->getColor()
+                                          << " transmisión: "
                                           << "automática"
-                                          << " tipo: "
-                                          << cars[i]->getType() << " precio: " << cars[i]->getPrice() << " asientos: " << cars[i]->getSeats() << " id: " << cars[i]->getId() << endl);
+                                          << " tipo: " << cars[i]->getType()
+                                          << " precio: " << cars[i]->getPrice()
+                                          << " asientos: " << cars[i]->getSeats()
+                                          << " id: " << cars[i]->getId() << endl);
     }
 };
 
@@ -361,16 +404,24 @@ void Inventary::showCars()
 void Inventary::showCar(int i)
 {
     cout << "Se te ha reservado tu carro con las siguientes características: " << endl;
-    cars[i]->getTransm() == 0 ? (cout << "Marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " color: "
-                                      << cars[i]->getColor() << " transmisión: "
+    cars[i]->getTransm() == 0 ? (cout << "Marca: " << cars[i]->getBrand()
+                                      << " rendimiento: " << cars[i]->getPerform()
+                                      << " color: " << cars[i]->getColor()
+                                      << " transmisión: "
                                       << "manual"
-                                      << " tipo: "
-                                      << cars[i]->getType() << " precio: " << cars[i]->getPrice() << " asientos: " << cars[i]->getSeats() << " id: " << cars[i]->getId() << endl)
-                              : (cout << "Marca: " << cars[i]->getBrand() << " rendimiento: " << cars[i]->getPerform() << " color: "
-                                      << cars[i]->getColor() << " transmisión: "
+                                      << " tipo: " << cars[i]->getType()
+                                      << " precio: " << cars[i]->getPrice()
+                                      << " asientos: " << cars[i]->getSeats()
+                                      << " id: " << cars[i]->getId() << endl)
+                              : (cout << "Marca: " << cars[i]->getBrand()
+                                      << " rendimiento: " << cars[i]->getPerform()
+                                      << " color: " << cars[i]->getColor()
+                                      << " transmisión: "
                                       << "automática"
-                                      << " tipo: "
-                                      << cars[i]->getType() << " precio: " << cars[i]->getPrice() << " asientos: " << cars[i]->getSeats() << " id: " << cars[i]->getId() << endl);
+                                      << " tipo: " << cars[i]->getType()
+                                      << " precio: " << cars[i]->getPrice()
+                                      << " asientos: " << cars[i]->getSeats()
+                                      << " id: " << cars[i]->getId() << endl);
 };
 
 #endif // INVENTARIO_H_
