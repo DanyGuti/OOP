@@ -324,8 +324,8 @@ void Inventary::changePrices()
     unsigned int new_price, price, id_s;
     float performance;
     bool transmission;
-    cout << "Por favor escribe las especificaciones del tipo de carro que\
-         deseas cambiarle el precio: "
+    cout << "Por favor escribe las especificaciones del tipo de carro que" << endl;
+    cout << "deseas cambiarle el precio: "
          << endl;
     cout << "El tipo: " << endl;
     cin >> type;
