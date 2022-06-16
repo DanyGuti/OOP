@@ -45,13 +45,11 @@ int main()
           cin >> s;
           if (s == 'R')
           {
-               cout << "Nota, a la hora de reservar carro sé muy específico y teclea\n
-                   bien el carro que quieres "
-                    << endl
+               cout << "Nota, a la hora de reservar carro sé muy específico y teclea" << endl;
+               cout << "bien el carro que quieres: " << endl
                     << endl;
-               cout << "¡Escribiendo bien la marca, el rendimiento y el color\n
-                   por favor !"
-                    << endl
+               cout << "¡Escribiendo bien la marca, el rendimiento y el color" << endl;
+               cout << "por favor !" << endl
                     << endl;
                Alamos->addCarsInventary();
                cout << endl
@@ -63,15 +61,13 @@ int main()
           {
                while (optionCeo != "stack" || optionCeo != "uno" || optionCeo != "cambiar")
                {
-                    cout << "¿Deseas agregar carros por tipo uno por uno? ¿O carros por stack?, "
-                         << endl
-                        " o ¿ver el inventario? "
+                    cout << "¿Deseas agregar carros por tipo uno por uno? ¿O carros por stack?, " << endl;
+                    cout << " o ¿ver el inventario? "
                          << endl;
                     cout << "O, ¿cambiar el precio de un carro?" << endl
                          << endl;
-                    cout << "Teclea 'uno' si quieres agregar uno por uno, o 'stack' si deseas "
-                         << endl "agregar por stack, o 'cambiar' para cambiar el precio de un carro "
-                         << endl;
+                    cout << "Teclea 'uno' si quieres agregar uno por uno, o 'stack' si deseas " << endl;
+                    cout << "agregar por stack, o 'cambiar' para cambiar el precio de un carro " << endl;
                     cout << "de alguno de los carros disponibles en el inventario: " << endl;
                     cin >> optionCeo;
                     if (optionCeo == "stack")
